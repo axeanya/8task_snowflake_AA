@@ -1,0 +1,9 @@
+task1/dwh_core/checkSF.sql
+task1/dwh_core/sp_load_stage_to_bronze_upd.sql
+
+task1/airflow/*
+!task1/airflow/docker-compose.yaml
+
+!task1/airflow/dags/
+task1/airflow/dags/*
+!task1/airflow/dags/SF_dag.py
