@@ -1,5 +1,5 @@
 from datetime import datetime
-from airflow.decorators import dag, task_group, task
+from airflow.sdk import dag, task_group
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 
 @dag(
@@ -12,6 +12,7 @@ from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 )
 
 def SF_medallion_pipeline():
+
     @task_group(group_id="medallion_processing_group")
     def medallion_processing_group():
 
