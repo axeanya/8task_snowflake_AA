@@ -10,25 +10,55 @@ USE DATABASE sf_avia;
 CREATE OR REPLACE STAGE sf_avia.bronze_layer.avia_internal_stage;
 
 CREATE OR REPLACE TABLE sf_avia.bronze_layer.airline_dataset (
-id string,
-passenger_id STRING,
-first_name STRING,
-last_name STRING,
-gender STRING,
-age STRING,
-nationality STRING,
-airport_name STRING,
-airport_country_code STRING,
-country_name STRING, 
-airport_continent STRING, 
-continents STRING, 
-departure_date STRING,
-arrival_airport STRING, 
-pilot_name STRING, 
-flight_status STRING, 
-ticket_type STRING,
-passenger_status STRING
+NONAME_0 VARCHAR,
+"Passenger ID" VARCHAR,
+"First Name" VARCHAR,
+"Last Name" VARCHAR,
+Gender VARCHAR, 
+Age VARCHAR,
+Nationality VARCHAR,
+"Airport Name" VARCHAR,
+"Airport Country Code" VARCHAR,
+"Country Name" VARCHAR,
+"Airport Continent" VARCHAR,
+Continents VARCHAR,
+"Departure Date" VARCHAR,
+"Arrival Airport" VARCHAR,
+"Pilot Name" VARCHAR,
+"Flight Status" VARCHAR,
+"Ticket Type" VARCHAR,
+"Passenger Status" VARCHAR
 );
 
 CREATE OR REPLACE STREAM sf_avia.bronze_layer.airline_dataset_stream 
 ON TABLE sf_avia.bronze_layer.airline_dataset;
+
+CREATE OR REPLACE TABLE sf_avia.silver_layer.passenger (
+passenger_id
+first_name
+last_name
+gender
+age
+nationality
+);
+
+CREATE OR REPLACE TABLE sf_avia.silver_layer.airport(
+airport_id
+airport_name
+airport_country_code
+country_name
+airport_continent
+continents
+arrival_airport
+);
+
+CREATE OR REPLACE TABLE sf_avia.silver_layer.flight(
+flight_id
+passenger_id
+airport_id
+departure_date
+pilot_name
+fligh_status
+ticket_type
+passenger_status
+);
