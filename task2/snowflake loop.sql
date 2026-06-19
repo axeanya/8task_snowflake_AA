@@ -7,6 +7,8 @@ BEGIN
     RETURN :p_val1::VARCHAR || ', ' || :p_val2::VARCHAR || ', ' || :p_val3::VARCHAR;
 END;
 $$;
+-- as I understand it, processing data row-by-row in Snowflake is not a good option
+-- Anyways...
 EXECUTE IMMEDIATE $$
 DECLARE
     final_output VARCHAR DEFAULT '';
