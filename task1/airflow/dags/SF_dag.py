@@ -21,6 +21,7 @@ def SF_medallion_pipeline():
             conn_id="snowflake_aa",
             sql="CALL sf_avia.bronze_layer.sp_load_stage_to_bronze();",
             trigger_rule="all_success",
+            autocommit=True,
         )
 
         silver = SQLExecuteQueryOperator(
