@@ -9,6 +9,11 @@ Creation of small DWH (5-10 tables) 5 with several layer, which will be based on
 2. Data should be loaded in several ways using Airflow:
 - SOLUTION: snowflake internal stage (internal stage was created on the bronze layer)
 3. Additional required tasks from the Task Steps section are done
+- SOLUTION:
+    1. logging process: 
+        - pipeline_logs(bronze): 1 row for each task of DAG (SP)
+        - ingestion_quarantine(silver): broken data stored here in OBJECT type as JSON.
+        For example, I assume the "Arrival Airport" as IATA_CODE, and all airports without international code are in this table. 
 
 
 ## task2:

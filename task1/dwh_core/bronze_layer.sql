@@ -1,6 +1,6 @@
 CREATE OR REPLACE STAGE sf_avia.bronze_layer.avia_internal_stage;
 
--- schema evolution?
+-- schema evolution for future?
 CREATE OR REPLACE TABLE sf_avia.bronze_layer.airline_dataset (
 "NONAME_0" VARCHAR,
 "Passenger ID" VARCHAR,
@@ -28,7 +28,7 @@ CREATE OR REPLACE TABLE sf_avia.bronze_layer.pipeline_logs (
     job_name          VARCHAR,             -- e.g., 'SP_LOAD_STAGE_TO_BRONZE'
     source_object     VARCHAR,             -- e.g., '@AVIA_INTERNAL_STAGE'
     target_table      VARCHAR,             -- e.g., 'SF_AVIA.BRONZE_LAYER.AIRLINE_DATASET'
-    status            VARCHAR,             -- 'STARTED', 'SUCCESS', 'FAILED'
+    status            VARCHAR,             -- 'STARTED', 'SUCCESS', 'FAILED', 'SUCCESS_NO_DATA'
     rows_processed    INTEGER DEFAULT 0,   -- Total rows handled
     error_message     VARCHAR,             -- Captures SQL exceptions if they happen
     start_time        TIMESTAMP_NTZ,

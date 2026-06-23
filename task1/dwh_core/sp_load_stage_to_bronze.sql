@@ -27,6 +27,8 @@ BEGIN
         (:v_log_id, :v_job_name, :v_source, :v_target, 'STARTED', :v_start_time);
 
     -- Structured Ingestion
+    /*  no need to create a transaction, as long as we have autocommit and 
+    there is only 1 DML in this potential transaction*/
     COPY INTO sf_avia.bronze_layer.airline_dataset
     FROM (
         SELECT 

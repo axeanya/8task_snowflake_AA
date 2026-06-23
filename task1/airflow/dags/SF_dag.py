@@ -7,6 +7,7 @@ from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
     schedule=None,
     start_date=datetime(2026, 1, 1),
     catchup=False,
+    max_active_runs=1,
     tags=["Traineeship", "Snowflake"],
     description="DAG for medallion pipeline in snowflake",
 )
@@ -29,6 +30,7 @@ def SF_medallion_pipeline():
             conn_id="snowflake_aa",
             sql="CALL SF_AVIA.SILVER_LAYER.SP_TRANSFORM_BRONZE_TO_SILVER();",
             trigger_rule="all_success",
+            autocommit=True,
         )
 
         gold = SQLExecuteQueryOperator(
@@ -36,6 +38,7 @@ def SF_medallion_pipeline():
             conn_id="snowflake_aa",
             sql="CALL SF_AVIA.GOLD_LAYER.SP_TRANSFORM_SILVER_TO_GOLD();",
             trigger_rule="all_success",
+            autocommit=True,
         )
 
         bronze >>silver >> gold 
