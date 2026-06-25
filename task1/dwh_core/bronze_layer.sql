@@ -37,3 +37,4 @@ CREATE OR REPLACE TABLE sf_avia.bronze_layer.pipeline_logs (
 );
 CREATE OR REPLACE STREAM sf_avia.bronze_layer.airline_dataset_stream 
 ON TABLE sf_avia.bronze_layer.airline_dataset;
+

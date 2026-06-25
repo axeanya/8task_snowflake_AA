@@ -39,6 +39,6 @@ CREATE OR REPLACE TABLE sf_avia.silver_layer.ingestion_quarantine (
     raw_record_json    OBJECT
 );
 
-CREATE OR REPLACE STREAM sf_avia.silver_layer.passenger_gold_stream ON TABLE sf_avia.silver_layer.passenger;
-CREATE OR REPLACE STREAM sf_avia.silver_layer.airport_gold_stream   ON TABLE sf_avia.silver_layer.airport;
-CREATE OR REPLACE STREAM sf_avia.silver_layer.flight_gold_stream    ON TABLE sf_avia.silver_layer.flight;
+CREATE OR REPLACE STREAM sf_avia.silver_layer.passenger_silver_stream ON TABLE sf_avia.silver_layer.passenger;
+CREATE OR REPLACE STREAM sf_avia.silver_layer.airport_silver_stream   ON TABLE sf_avia.silver_layer.airport;
+CREATE OR REPLACE STREAM sf_avia.silver_layer.flight_silver_stream    ON TABLE sf_avia.silver_layer.flight;

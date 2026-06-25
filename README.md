@@ -5,7 +5,9 @@ Creation of small DWH (5-10 tables) 5 with several layer, which will be based on
 
 ### Acceptance Criteria
 1. Data is processed into DWH through several stages of storage:
-- SOLUTION: medallion architecture (raw data -> cleaned data in the 2NF -> Dimensional modelling)
+- SOLUTION: medallion architecture (raw data -> cleaned data in the 2NF -> Dimensional modelling).
+  My requirement: No additional updates on silver layer. All transformations and loading are done via pipeline. 
+  + The data is quite simple, so my Gold layer is almost a direct copy of the Silver layer. To demonstrate that this layer is optimized for analytics, I added a calendar dimension table — DIM_DATE — populated with pre-processed attributes such as month, day, and day of the week. This table is not part of the pipeline; instead, it functions as a static lookup dictionary that is populated only once. 
 2. Data should be loaded in several ways using Airflow:
 - SOLUTION: snowflake internal stage (internal stage was created on the bronze layer)
 3. Additional required tasks from the Task Steps section are done
@@ -14,7 +16,6 @@ Creation of small DWH (5-10 tables) 5 with several layer, which will be based on
         - pipeline_logs(bronze): 1 row for each task of DAG (SP)
         - ingestion_quarantine(silver): broken data stored here in OBJECT type as JSON.
         For example, I assume the "Arrival Airport" as IATA_CODE, and all airports without international code are in this table. 
-
 
 ## task2:
 ### Task Description
