@@ -16,6 +16,8 @@ Creation of small DWH (5-10 tables) 5 with several layer, which will be based on
         - pipeline_logs(bronze): 1 row for each task of DAG (SP)
         - ingestion_quarantine(silver): broken data stored here in OBJECT type as JSON.
         For example, I assume the "Arrival Airport" as IATA_CODE, and all airports without international code are in this table. 
+    2. Time Travelling (time_travel.sql)
+    3. Secure View and Row Level Security (secure_view.sql)
 
 ## task2:
 ### Task Description
@@ -25,3 +27,5 @@ Result would be a separate SQL file with a Postgres solution, and second file wi
 - task for both, Snowflake and Postgres was completed using cursor
 
 ## task3:
+![alt text](task3/images/<Screenshot 2026-06-26 125747.png>)
+![alt text](task3/images/<Screenshot 2026-06-26 125906.png>)
