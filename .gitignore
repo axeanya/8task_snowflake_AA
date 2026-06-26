@@ -6,3 +6,9 @@ task1/airflow/*
 !task1/airflow/dags/
 task1/airflow/dags/*
 !task1/airflow/dags/SF_dag.py
+
+task3/.venv
+.vscode
+task3/requirements.txt
+task3/myapp.py
+task3/myapp.sql
