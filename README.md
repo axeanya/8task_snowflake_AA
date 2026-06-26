@@ -28,5 +28,7 @@ Result would be a separate SQL file with a Postgres solution, and second file wi
 - task for both, Snowflake and Postgres was completed using cursor
 
 ## task3:
-![alt text](task3/images/Screenshot%2026-06-26%125747.png)
-![alt text](task3/images/Screenshot%2026-06-26%125906.png)
+It's not possible to create a new DB with existing name of DB. I do not allow to delete existing DBs
+![alt text](<task3/images/Screenshot 2026-06-26 125747.png>)
+Correct execution of cloning
+![alt text](<task3/images/Screenshot 2026-06-26 125906.png>)
